@@ -12,6 +12,9 @@ namespace UserRegistrationProblem
 
             //Validation for First Name
             CheckFirstName();
+
+            //Validation For Last Name
+            CheckLastName();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -34,5 +37,28 @@ namespace UserRegistrationProblem
                 Console.WriteLine("Enter Valid First Name");
             }
         }
+                
+        //Creating Method for checking the valid LastName
+        public static void CheckLastName()
+        {
+            Console.WriteLine("Enter Last Name");
+            Console.WriteLine("\nNote: Last Name Should Starts with Capital Letter and it should have atleast 3 Characters.");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Last Name
+            string LastNamePattern = @"^[A-Z]{1,}[a-zA-Z]{2,}$";
+            Console.WriteLine("\n");
+
+            Regex LastNameRegex = new Regex(LastNamePattern);
+            var Result = LastNameRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Last Name is Registered Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Last Name");
+            }
+        }
+
     }
 }
