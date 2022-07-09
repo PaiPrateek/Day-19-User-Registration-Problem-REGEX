@@ -20,7 +20,10 @@ namespace UserRegistrationProblem
             //CheckEmail();
 
             //Vlaidation for Mobile Number
-            CheckMobileNumber();
+            //CheckMobileNumber();
+
+            //Validation for Password (Min 8 Characters)
+            Check_Password_Conatins_Min_8_Characters();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -103,6 +106,26 @@ namespace UserRegistrationProblem
             else
             {
                 Console.WriteLine("Enter Valid Mobile Number");
+            }
+        }
+        //Creating Method for checking the valid Password (Min 8 Character)
+        public static void Check_Password_Conatins_Min_8_Characters()
+        {
+            Console.WriteLine("Enter Password");
+            Console.WriteLine("\nPassword Should have min 8 Characters");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Password
+            string PasswordPattern = @"^[a-zA-Z]{8,}$";
+            Console.WriteLine("\n");
+            Regex PasswordRegex = new Regex(PasswordPattern);
+            var Result = PasswordRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Password is Registered Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Password");
             }
         }
     }
