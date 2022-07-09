@@ -32,7 +32,10 @@ namespace UserRegistrationProblem
             //Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase_1_Numeric_Number();
 
             //Validation for Password (Min 8 Characters have 1 upper case, 1 Numeric number and Special Chacter)
-            Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase_1_Numeric_Number_and_has_1_SpecialCharacter();
+            //Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase_1_Numeric_Number_and_has_1_SpecialCharacter();
+
+            //Validation for Sample E-Mails
+            CheckSampleEmail();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -77,7 +80,7 @@ namespace UserRegistrationProblem
                 Console.WriteLine("Enter Valid Last Name");
             }
         }
-        //Creating Method for checking the valid LastName
+        //Creating Method for checking the valid Email
         public static void CheckEmail()
         {
             Console.WriteLine("Enter Email");
@@ -195,6 +198,27 @@ namespace UserRegistrationProblem
             else
             {
                 Console.WriteLine("Enter Valid Password");
+            }
+        }
+
+        //Creating Method for checking the valid Email
+        public static void CheckSampleEmail()
+        {
+            Console.WriteLine("Enter Email");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Email
+            string EmailPattern = @"^([a-z]{3}([\.\+\-0-9]*)@[a-z0-9]{1,}.[a-z]{3,}[.a-z]*)";
+            Console.WriteLine("\n");
+
+            Regex EmailRegex = new Regex(EmailPattern);
+            var Result = EmailRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Sample Email is Valid");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Email");
             }
         }
     }
