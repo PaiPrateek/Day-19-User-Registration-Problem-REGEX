@@ -11,10 +11,13 @@ namespace UserRegistrationProblem
             Console.WriteLine("\n");
 
             //Validation for First Name
-            CheckFirstName();
+            //CheckFirstName();
 
             //Validation For Last Name
-            CheckLastName();
+            //CheckLastName();
+
+            //Validation for Email
+            CheckEmail();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -37,7 +40,7 @@ namespace UserRegistrationProblem
                 Console.WriteLine("Enter Valid First Name");
             }
         }
-                
+
         //Creating Method for checking the valid LastName
         public static void CheckLastName()
         {
@@ -59,6 +62,25 @@ namespace UserRegistrationProblem
                 Console.WriteLine("Enter Valid Last Name");
             }
         }
+        //Creating Method for checking the valid LastName
+        public static void CheckEmail()
+        {
+            Console.WriteLine("Enter Email");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Email
+            string EmailPattern = @"^([A-Za-z]{3,}([.a-z]*)[@][a-z]{2,}[.][a-z]{2,3}([.a-z]*))$";
+            Console.WriteLine("\n");
 
+            Regex EmailRegex = new Regex(EmailPattern);
+            var Result = EmailRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Email is Registered Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Email");
+            }
+        }
     }
 }
