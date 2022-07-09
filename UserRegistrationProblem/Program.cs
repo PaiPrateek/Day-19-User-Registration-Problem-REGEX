@@ -17,7 +17,10 @@ namespace UserRegistrationProblem
             //CheckLastName();
 
             //Validation for Email
-            CheckEmail();
+            //CheckEmail();
+
+            //Vlaidation for Mobile Number
+            CheckMobileNumber();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -80,6 +83,26 @@ namespace UserRegistrationProblem
             else
             {
                 Console.WriteLine("Enter Valid Email");
+            }
+        }
+        //Creating Method for checking the valid Mobile Number
+        public static void CheckMobileNumber()
+        {
+            Console.WriteLine("Enter Mobile Number");
+            Console.WriteLine("\nCountry code follwed by space and 10 Digit Number");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Mobile Number
+            string MobileNumberPattern = @"^[1-9]{2,}[\s][6-9]{1}[0-9]{9}$";
+            Console.WriteLine("\n");
+            Regex MobileNumberRegex = new Regex(MobileNumberPattern);
+            var Result = MobileNumberRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Mobile Number is Registered Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Mobile Number");
             }
         }
     }
