@@ -26,7 +26,10 @@ namespace UserRegistrationProblem
             //Check_Password_Conatins_Min_8_Characters();
 
             //Validation for Password (Min 8 Characters have 1 upper case)
-            Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase();
+            //Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase();
+
+            //Validation for Password (Min 8 Characters have 1 upper case and 1 Numeric number)
+            Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase_1_Numeric_Number();
         }
         //Creating Method for checking the valid FirstName
         public static void CheckFirstName()
@@ -139,6 +142,26 @@ namespace UserRegistrationProblem
             string input = Console.ReadLine();
             //Regex Patter for validating the Password
             string PasswordPattern = @"^(?=.*[A-Z])[a-zA-Z]{8,}$";
+            Console.WriteLine("\n");
+            Regex PasswordRegex = new Regex(PasswordPattern);
+            var Result = PasswordRegex.IsMatch(input);
+            if (Result)
+            {
+                Console.WriteLine("The Entered Password is Registered Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Password");
+            }
+        }
+        //Creating Method for checking the valid Password (Min 8 Character have atleast 1 upeer case and 1 Numeric Number )
+        public static void Check_Password_Conatins_Min_8_Characters_Have_1_Uppercase_1_Numeric_Number()
+        {
+            Console.WriteLine("Enter Password");
+            Console.WriteLine("\nPassword Should have min 8 Characters");
+            string input = Console.ReadLine();
+            //Regex Patter for validating the Password
+            string PasswordPattern = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$";
             Console.WriteLine("\n");
             Regex PasswordRegex = new Regex(PasswordPattern);
             var Result = PasswordRegex.IsMatch(input);
